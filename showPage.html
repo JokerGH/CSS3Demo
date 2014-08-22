@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<style type="text/css">
+	body,div,section,header,video,footer,ul,li{margin:0; padding:0; border:0;}
+	.center-video {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+		min-width: 100%;
+		min-height: 100%;
+		max-height: 4000%;
+		max-width: 1000%;
+		width: auto;
+		height: auto;
+	}
+	.footer {
+		position: fixed;
+		z-index: 666;
+		width: 100%;
+		height: 50px;
+		background-color: black;
+		bottom: -50px;
+	}
+	.mainStyle {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	.show_footer {
+		transition: bottom .25s ease-out 2s;
+		bottom: 0;
+	}
+	.content {
+		filter: alpha(Opacity=0);
+		opacity: 0;
+	}
+	.show_content {
+		transition: opacity .5s linear;
+		filter: alpha(Opacity=100);
+		opacity: 1;
+	}
+	#footer .footer-inner {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 668;
+		background: rgb(32,36,39);
+	}
+	#footer .left {
+		float: left;
+		height: 100%;
+	}
+	#footer .right {
+		float: right;
+		height: 100%;
+	}
+	.button {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		cursor: pointer;
+		background: rgb(32,36,39);
+		display: inline-block;
+		font: 12px/40px GillSansMedium,Arial,Verdana,Helvetica,sans-serif;
+		color: rgb(145,173,207);
+		text-decoration: none;
+		text-transform: uppercase;
+		height: 41px;
+		padding: 0 20px 0 43px;
+		position: relative;
+		-o-border-radius: 20px;
+		border-radius: 20px;
+		letter-spacing: .06em;
+		outline: 0;
+	}
+	.button-2 {
+		border: 1px solid #e7e7e7;
+	}
+	#footer .button {
+		margin: 5px 0 0 20px;
+	}
+	.button-2 .icon {
+		box-shadow: inset 0 0 0 1px #c1dcc5;
+	}
+	.button-1 .icon, .button-2 .icon {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		width: 31px;
+		height: 31px;
+		-o-border-radius: 50%;
+		border-radius: 50%;
+		transition: box-shadow .25s ease,-webkit-transform .3s ease-out;
+		transition: box-shadow .25s ease,transform .3s ease-out;
+	}
+	.button-2:hover .icon {
+		box-shadow: inset 0 0 0 16px rgb(145,173,207);
+		transform:rotate(180deg);
+	}
+
+	.button-2:hover .em {
+		border-top-color: rgb(32,36,39);
+		top: 13px;
+	}
+
+	.button-2:hover .i {
+		border-top-color: rgb(145,173,207);
+		top: 10px;
+	}
+
+	.button-2:hover .icon div {
+		filter: alpha(Opacity=0);
+		opacity: 0
+	}
+
+	.button-2:hover .icon div.hover {
+		filter: alpha(Opacity=100);
+		opacity: 1
+	}
+	.iconIm{
+		width: 0;
+		height: 0;
+		border-style: solid dashed dashed dashed;
+		border-width: 5px;
+		border-color: transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.em {
+		border-top-color: rgb(145,173,207);
+		top: 14px;
+		left: 10px;
+	}
+	.i{
+		border-top-color: rgb(32,36,39);
+		top: 11px;
+		left: 10px;
+	}
+	</style>
+	<body onload="loadFn()">
+		<div class="mainStyle">
+			<div id="wrapper" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;display: block; visibility: visible;overflow: hidden;">
+				<div id="content" class="content">
+					<audio loop="true">
+						<source src="home.ogg">
+					</audio>
+					<video loop="loop" preload="auto" poster="2012103195383.jpg" class="center-video">
+						<source src="home_loop_720p.webm">
+						<source src="home_loop_720p.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+			<div>
+
+			</div>
+			<div>
+
+			</div>
+			<div id="footer" class="footer">
+				<div class="footer-inner">
+					<div class="left">
+						<div class="logo left">
+							<a style="">
+								<img src="0947500.jpg" width="113" height="50">
+							</a>
+						</div>
+						<div class="left">
+							<span id="btn-discover" class="button button-2">
+								What's geek?
+								<div class="icon">
+									<em class="iconIm em"></em>
+									<i class="iconIm i"></i>
+								</div>
+							</span>
+						</div>
+					</div>
+					<div class="right">
+						<div class="social left">
+							<a href="#" class="facebook">Facebook
+								<div class="icon-facebook">
+								</div>
+								<div class="icon-facebook-hover">
+								</div>
+							</a>
+							<a href="#" class="twitter">Twitter
+								<div class="icon-twitter"></div>
+								<div class="icon-twitter-hover"></div>
+							</a>
+						</div>
+						<div class="lang left">
+							<span href="" class="link">Others (English)
+								<div class="icon">
+									<div class="icon-arrow-top"></div>
+									<div class="icon-arrow-top-hover"></div>
+								</div>
+							</span>
+							<ul id="lang">
+								<li><a href="/nl_BE/">België</a></li>
+								<li><a href="/fr_BE/">Belgique</a></li>
+								<li><a href="/de_DE/">Deutschland</a></li>
+								<li><a href="/fr_FR/">France</a></li>
+								<li><a href="/fr_LU/">Luxembourg</a></li>
+								<li><a href="/de_LU/">Luxemburg</a></li>
+								<li><a href="/nl_NL/">Nederland</a></li>
+								<li><a href="/de_AT/">Österreich</a></li>
+								<li><a href="/de_CH/">Schweiz</a></li>
+								<li><a href="/fr_CH/">Suisse</a></li>
+							</ul>
+						</div>
+						<div class="settings left">
+							<a href="" class="sound icon disabled">sound
+								<div class="icon-sound"></div>
+								<div class="icon-sound-hover"></div>
+								<div class="icon-mute"></div>
+								<div class="icon-mute-hover"></div>
+							</a>
+							<a href="" class="fullscreen icon">fullscreen
+								<div class="icon-fullscreen"></div>
+								<div class="icon-fullscreen-hover"></div>
+							</a>
+						</div>
+					</div>
+					</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript"> 
+		function hasClass(obj, cls) {  
+		    return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
+		}  
+		  
+		function addClass(obj, cls) {  
+		    if (!this.hasClass(obj, cls)) obj.className += " " + cls;  
+		}  
+		  
+		function removeClass(obj, cls) {  
+		    if (hasClass(obj, cls)) {  
+		        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');  
+		        obj.className = obj.className.replace(reg, ' ');  
+		    }  
+		}
+		function loadFn(){
+			var footer = document.getElementById("footer");
+			footer.setAttribute("class","footer show_footer");
+			var content = document.getElementById("content");
+			content.setAttribute("class","content show_content");
+		}
+	</script>
+</html>
