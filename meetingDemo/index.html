@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+	<style type="text/css">
+	.canWall {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+		min-width: 100%;
+		min-height: 100%;
+		max-height: 4000%;
+		max-width: 1000%;
+		width: auto;
+		height: auto;
+	}
+	.container{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		display: block;
+		visibility: visible;
+		overflow: hidden;
+	}
+	.borderdiv{
+		display: block;
+		width: 0%;
+		height: 0%;
+		margin: 2%;
+		border: solid 2px #4FC1E9;
+		border-radius: 20px;
+	}
+	.borderdivshow{
+		display: block;
+		height: 92%;
+		width: 96%;
+		margin: 2%;
+		border: solid 2px #4FC1E9;
+		border-radius: 20px;
+		transition: all 1s ease 1s;
+	}
+	.maintitle{
+		
+		color: #4FC1E9;
+	}
+	.footer{
+		bottom: 0;
+		width: 100%;
+		height: 5%;
+		border: solid 2px #4FC1E9;
+		position: fixed;
+		display: block;
+	}
+	</style>
+	<body>
+		<div style="height: 100%; width: 100%; display: block; overflow: hidden;">
+			<div id="wallpaper" class="container">
+				<canvas id="q" class="canWall"></canvas>
+			</div>
+			<div id="maindiv" class="container">
+				<div id="borderdiv" class="borderdiv">
+					<div style="display:block">
+						<h1 class="maintitle">Css3</h1>
+					</div>
+					<div id="footer" class="footer">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script  type="text/javascript" >
+		var s = window.screen;
+		var width = q.width = s.width;
+		var height = q.height = s.height;
+		var letters = Array(256).join(1).split('');
+		var draw = function () {
+		  q.getContext('2d').fillStyle='rgba(0,0,0,.05)';
+		  q.getContext('2d').fillRect(0,0,width,height);
+		  q.getContext('2d').fillStyle='#0F0';
+		  letters.map(function(y_pos, index){
+		    text = String.fromCharCode(33+Math.random()*63);
+		    x_pos = index * 10;
+		    q.getContext('2d').fillText(text, x_pos, y_pos);
+		    letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
+		  });
+		};
+		var backInterval = setInterval(draw, 33);
+		setTimeout(function(){
+			borderdiv.setAttribute("class","borderdivshow");}
+		,1000)
+	</script>
+</html>
