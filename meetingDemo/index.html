@@ -139,14 +139,46 @@
 	}
 	</style>
 	<style type="text/css">
+		@-webkit-keyframes signinanimation
+		{
+			0% {box-shadow: 0px 0px 15px #39f;border: solid 1px #39f;}
+			15% {box-shadow: 0px 0px 15px #F246C9;border: solid 1px #F246C9;}
+			30% {box-shadow: 0px 0px 15px #4453F2;border: solid 1px #4453F2;}
+			45% {box-shadow: 0px 0px 15px #44F262;border: solid 1px #44F262;}
+			60% {box-shadow: 0px 0px 15px #F257D4;border: solid 1px #F257D4;}
+			75% {box-shadow: 0px 0px 15px #EDF255;border: solid 1px #EDF255;}
+			90% {box-shadow: 0px 0px 15px #F20006;border: solid 1px #F20006;}
+			100% {box-shadow: 0px 0px 15px #39f;border: solid 1px #39f;}
+		}
 		.signin{
 			position: absolute;
 			top: 30%;
 			left: 35%;
 			width: 30%;
-			height: 30%;
-			border: solid 2px #4FC1E9;
+			height: 0%;
+			border: solid 0px #39f;
+			transition: all 0.5s ease 1s;
+			border-radius: 0px;
 		}
+		.signin_show{
+			position: absolute;
+			top: 30%;
+			left: 35%;
+			width: 30%;
+			height: 30%;
+			border-radius: 15px;
+			border: solid 1px #39f;
+			box-shadow: 0px 0px 15px #39f;
+			transition: all 0.5s ease 1s;
+			-webkit-animation: signinanimation;
+			-webkit-animation-duration:5s;
+			-webkit-animation-timing-function:linear;
+			-webkit-animation-delay:2s;
+			-webkit-animation-iteration-count:infinite;
+			-webkit-animation-direction:alternate;
+			-webkit-animation-play-state:running;
+		}
+
 	</style>
 	<body>
 		<div style="height: 100%; width: 100%; display: block; overflow: hidden;">
@@ -155,7 +187,7 @@
 			</div>
 			<div id="maindiv" class="container">
 				<div id="signin" class="signin">
-					
+					Login
 				</div>
 				<div id="borderdiv" class="borderdiv">
 					<div style="display:block">
@@ -200,6 +232,9 @@
 		};
 		var backInterval = setInterval(draw, 33);
 
+		setTimeout(function(){
+				signin.setAttribute("class","signin_show");
+			},1000);
 
 		function aaa(){
 			setTimeout(function(){
