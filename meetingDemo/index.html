@@ -91,6 +91,7 @@
 	.footer_inner_right{
 		float: left;
 		height: 100%;
+		font-family: 'icomoon';
 	}
 	.logo{
 		border-radius: 0 0 0 16px;
@@ -128,6 +129,7 @@
 		border-radius: 50%;
 		transition: box-shadow .25s ease,transform .3s ease-out;
 		box-shadow: inset 0 0 0 1px rgb(145,173,207);
+		font-family: 'icomoon';
 	}
 	.footleft_text{
 		text-align: center;
@@ -170,15 +172,210 @@
 			border: solid 1px #39f;
 			box-shadow: 0px 0px 15px #39f;
 			transition: all 0.5s ease 1s;
-			-webkit-animation: signinanimation;
-			-webkit-animation-duration:5s;
+		}
+		.signin_hidden{
+			position: absolute;
+			top: 30%;
+			left: 35%;
+			width: 0%;
+			height: 0%;
+			border-radius: 15px;
+			border: solid 0px #39f;
+			box-shadow: 0px 0px 0px #39f;
+			transition: all 0.5s ease 0s;
+		}
+		.signBody{
+			transform: scale(0);
+			transition: all 0.5s ease 2s;
+		}
+		.signBodyshow{
+			height: 100%;
+			transform: scale(1);
+			transition: all 0.5s ease 2s;
+		}
+
+		.signintitle{
+			text-align: center;
+			position: relative;
+			height: 30%;
+			line-height: 100%;
+			top: 35%;
+			color: #39f;
+			text-shadow: 0px 0px 15px #39f;
+			font-size: 30px;
+			font-family: Arial;
+			width: 50%;
+			left: 25%;
+			border: solid 2px;
+			border-radius: 15px;
+			cursor: pointer;
+			transition: all 0.5s ease 0s;
+		}
+		.signintitle:hover{
+			background-color: rgba(51,153,255,0.75);
+			transition: all 0.5s ease 0s;
+		}
+		@-webkit-keyframes spantitleanimation
+		{
+			0% {text-shadow: 0px 0px 15px rgb(32,36,39);}
+			12% {text-shadow: 0px 0px 10px rgb(32,36,39);}
+			25% {text-shadow: 0px 0px 5px rgb(32,36,39);}
+			37% {text-shadow: 0px 0px 10px rgb(32,36,39);}
+			50% {text-shadow: 0px 0px 15px rgb(32,36,39);}
+			62% {text-shadow: 0px 0px 20px rgb(32,36,39);}
+			75% {text-shadow: 0px 0px 25px rgb(32,36,39);}
+			87% {text-shadow: 0px 0px 20px rgb(32,36,39);}
+			100% {text-shadow: 0px 0px 15px rgb(32,36,39);}
+		}
+		.signintitle:hover span{
+			color: rgb(32,36,39);
+			text-shadow: 0px 0px 15px rgb(32,36,39);
+			-webkit-animation: spantitleanimation;
+			-webkit-animation-duration:2s;
 			-webkit-animation-timing-function:linear;
-			-webkit-animation-delay:2s;
+			-webkit-animation-delay:0s;
 			-webkit-animation-iteration-count:infinite;
 			-webkit-animation-direction:alternate;
 			-webkit-animation-play-state:running;
 		}
+		.signBodyhidden{
+			height: 100%;
+			transform: scale(0);
+			transition: all 0.5s ease 0s;
+		}
 
+		@-webkit-keyframes animate-stripes{
+		    0%{ background-position:0,0;}
+		    100%{ background-position:60px,0;}
+		}
+		.tn-progress {
+			width: 0;
+			height: 4px;
+			background: rgba(255,255,255,0.5);
+			border-radius: 3px;
+			box-shadow: inset 0 1px 1px rgba(0,0,0,0.05), 0 -1px 0 rgba(255,255,255,0.6);
+		}
+		.bg-progress-box{
+			height: 10px;
+			position: absolute;
+			top: 48%;
+			width: 100%;
+			box-shadow: 0px 0px 15px #39f;
+			border-radius: 3px;
+			opacity: 0;
+			transition: all 0.5s ease 0s;
+		}
+		.bg-progress-box-show{
+			height: 10px;
+			position: absolute;
+			top: 48%;
+			width: 100%;
+			box-shadow: 0px 0px 15px #39f;
+			border-radius: 3px;
+			opacity: 1;
+			transition: all 0.5s ease 0s;
+		}
+		.bg-progress-box-hidden{
+			height: 10px;
+			position: absolute;
+			top: 48%;
+			width: 100%;
+			box-shadow: 0px 0px 15px #39f;
+			border-radius: 3px;
+			opacity: 0;
+			transition: all 0.5s ease 0s;
+		}
+		.bg-progress{
+			background-size:30px 30px;
+			background-color: #39f;
+			background-image:-webkit-linear-gradient(135deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+			-webkit-animation:animate-stripes 3s linear infinite;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 0%;
+			border-radius: 3px;
+		}
+		.bg-progress-run{
+			background-size:30px 30px;
+			background-color: #39f;
+			background-image:-webkit-linear-gradient(135deg,rgba(255,255,255,0.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,0.15) 50%,rgba(255,255,255,0.15) 75%,transparent 75%,transparent);
+			-webkit-animation:animate-stripes 3s linear infinite;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			border-radius: 3px;
+			transition: all 5s linear 0s;
+		}
+		.bmenu {
+			padding: 0px;
+			margin: 0 0 10px 0;
+			position: relative;
+		}
+		ul {
+			list-style: none;
+		}
+		.bmenu li {
+			font-size: 200%;
+			display: block;
+		}
+		.bmenu li a {
+			display: block;
+			font-family: 'Josefin Slab', Arial, sans-serif;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 2px rgba(89,22,20,0.3);
+			color: #39f;
+			padding: 5px 20px;
+			margin: 2px;
+			background: rgba(255,255,255,0.2);
+			letter-spacing: 1px;
+			-webkit-transform: skew(-12deg);
+			transform: skew(-12deg);
+			-webkit-transition: all 0.4s ease-in-out;
+			transition: all 0.4s ease-in-out;
+			text-decoration: none;
+		}
+		.bmenu:hover li a {
+			color: transparent;
+			text-shadow: 0px 0px 10px #fff;
+			background: rgba(59,59,59,0.2);
+			-webkit-transform: skew(0deg);
+			transform: skew(0deg);
+		}
+		.bmenu li a:hover {
+			background: transparent;
+			text-shadow: 1px 1px 10px rgba(89,22,20,0.6);
+			color: #38f;
+		}
+		.content {
+			position: relative;
+			width: 35%;
+			margin: 0 auto;
+			transform: scale(0);
+			height: 0;
+			transition: all 1s ease 2s;
+		}
+		.contentshow {
+			transform: scale(1);
+			height: auto;
+			transition: all 1s ease 2s;
+		}
+		h1 {
+			margin: 0px;
+			padding: 20px;
+			font-size: 42px;
+			color: #fff;
+			text-align: left;
+			font-weight: 400;
+			text-align: left;
+			font-family: 'Josefin Slab', Arial, sans-serif;
+		}
+		h1 span {
+			font-size: 22px;
+			color: #ddd;
+			padding-top: 10px;
+		}
 	</style>
 	<body>
 		<div style="height: 100%; width: 100%; display: block; overflow: hidden;">
@@ -187,11 +384,32 @@
 			</div>
 			<div id="maindiv" class="container">
 				<div id="signin" class="signin">
-					Login
+					<div id="signBody" class="signBody">
+						<div id="signintitle" class="signintitle">
+							<span style="display: block; position: relative; top: 22%;">
+								Sign in
+							</span>
+						</div>
+					</div>
+					<div id="progressDivBox" class="tn-progress bg-progress-box">
+						<div id="progressDiv" class="progressDiv bg-progress">
+
+						</div>
+					</div>
 				</div>
 				<div id="borderdiv" class="borderdiv">
 					<div style="display:block">
-						<h1 class="maintitle"></h1>
+						<h1>Font End Share <span>about CSS3&HTML5</span></h1>
+						<div id="content" class="content">
+							<ul class="bmenu">
+							    <li><a href="javascript: void(0);">transform</a></li>
+							    <li><a href="javascript: void(0);">transition</a></li>
+							    <li><a href="javascript: void(0);">text-shadow</a></li>
+							    <li><a href="javascript: void(0);">box-shadow</a></li>
+							    <li><a href="javascript: void(0);">border-radius</a></li>
+							    <li><a href="javascript: void(0);">Contact</a></li>
+							</ul>
+						</div>
 					</div>
 					<div id="footer" class="footer">
 						<div id="footer_left" class="footer_left">
@@ -204,7 +422,7 @@
 								<span class="button borderbuttonleft">
 									What's CSS3?
 									<div class="icon footleft_text">
-										
+										
 									</div>
 								</span>
 							</div>
@@ -234,13 +452,23 @@
 
 		setTimeout(function(){
 				signin.setAttribute("class","signin_show");
-			},1000);
+				signBody.setAttribute("class","signBodyshow")
+			},1500);
 
-		function aaa(){
+		var signintitle = document.getElementById("signintitle");
+
+		var aaa = function(){
+			signBody.setAttribute("class","signBodyhidden");
+			progressDivBox.setAttribute("class", "tn-progress bg-progress-box-show");
+			progressDiv.setAttribute("class","progressDiv bg-progress-run");
 			setTimeout(function(){
+				progressDivBox.setAttribute("class", "tn-progress bg-progress-box-hidden");
+				signin.setAttribute("class",'signin_hidden');
 				borderdiv.setAttribute("class","borderdivshow");
-				footer.setAttribute("class","footershow");}
-			,1000)
-		}
+				content.setAttribute("class","content contentshow");
+				footer.setAttribute("class","footershow");
+			},5000);
+		};
+		signintitle.onclick = aaa;   
 	</script>
 </html>
