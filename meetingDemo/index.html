@@ -319,6 +319,9 @@
 		.bmenu li {
 			font-size: 200%;
 			display: block;
+			position: absolute;
+			width: 100%;
+			transition: all 1s ease 0s;
 		}
 		.bmenu li a {
 			display: block;
@@ -361,7 +364,7 @@
 			height: auto;
 			transition: all 1s ease 2s;
 		}
-		h1 {
+		.weltitle {
 			margin: 0px;
 			padding: 20px;
 			font-size: 42px;
@@ -370,11 +373,70 @@
 			font-weight: 400;
 			text-align: left;
 			font-family: 'Josefin Slab', Arial, sans-serif;
+			opacity: 0;
 		}
-		h1 span {
+		.weltitle span {
 			font-size: 22px;
 			color: #ddd;
 			padding-top: 10px;
+		}
+		.weltitleshow {
+			opacity: 1;
+			transition: all 1s ease 2s;
+		}
+		.li1{
+			top: 0px;
+			left: 0px;
+		}
+		.li2{
+			top: 55px;
+			left: 0px;
+		}
+		.li3{
+			top: 110px;
+			left: 0px;
+		}
+		.li4{
+			top: 165px;
+			left: 0px;
+		}
+		.li5{
+			top: 220px;
+			left: 0px;
+		}
+		.li6{
+			top: 275px;
+			left: 0px;
+		}
+		.lihidden{
+			opacity: 0;
+			transform: scale(0);
+			transition: all 1s ease 0s;
+		}
+		.bmenu .temporaryStyle a {
+			display: block;
+			font-family: 'Josefin Slab', Arial, sans-serif;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 2px rgba(89,22,20,0.3);
+			color: #39f;
+			padding: 5px 20px;
+			margin: 2px;
+			background: rgba(255,255,255,0.2);
+			letter-spacing: 1px;
+			-webkit-transform: skew(0deg);
+			transform: skew(0deg);
+			-webkit-transition: all 0.4s ease-in-out;
+			transition: all 0.4s ease-in-out;
+			text-decoration: none;
+			border-radius: 10px 10px 0 0;
+		}
+		.borderbody{
+			position: relative;
+			display: block;
+			width: 0%;
+			height: 0px;
+			border: solid 0px #39f;
+			transition: all 1s ease 0s,height 0.5s ease 0s,width 0.5s ease 0.5s,border 0s ease 1s;
 		}
 	</style>
 	<body>
@@ -399,16 +461,19 @@
 				</div>
 				<div id="borderdiv" class="borderdiv">
 					<div style="display:block">
-						<h1>Font End Share <span>about CSS3&HTML5</span></h1>
+						<h1 id="weltitle" class="weltitle">Font End Share <span>about CSS3&HTML5</span></h1>
 						<div id="content" class="content">
 							<ul class="bmenu">
-							    <li><a href="javascript: void(0);">transform</a></li>
-							    <li><a href="javascript: void(0);">transition</a></li>
-							    <li><a href="javascript: void(0);">text-shadow</a></li>
-							    <li><a href="javascript: void(0);">box-shadow</a></li>
-							    <li><a href="javascript: void(0);">border-radius</a></li>
-							    <li><a href="javascript: void(0);">Contact</a></li>
+							    <li class="li1" onclick="liclick(this)"><a href="javascript: void(0);">transform</a></li>
+							    <li class="li2" onclick="liclick(this)"><a href="javascript: void(0);">transition</a></li>
+							    <li class="li3" onclick="liclick(this)"><a href="javascript: void(0);">text-shadow</a></li>
+							    <li class="li4" onclick="liclick(this)"><a href="javascript: void(0);">box-shadow</a></li>
+							    <li class="li5" onclick="liclick(this)"><a href="javascript: void(0);">border-radius</a></li>
+							    <li class="li6" onclick="liclick(this)"><a href="javascript: void(0);">Contact</a></li>
 							</ul>
+						</div>
+						<div id="borderbody" class="borderbody">
+
 						</div>
 					</div>
 					<div id="footer" class="footer">
@@ -419,7 +484,7 @@
 								</a>
 							</div>
 							<div class="footer_inner_right">
-								<span class="button borderbuttonleft">
+								<span class="button borderbuttonleft" onclick = "showcssMenu()">
 									What's CSS3?
 									<div class="icon footleft_text">
 										
@@ -449,15 +514,17 @@
 		  });
 		};
 		var backInterval = setInterval(draw, 33);
+		var dom = window.document;
+		
 
 		setTimeout(function(){
 				signin.setAttribute("class","signin_show");
 				signBody.setAttribute("class","signBodyshow")
 			},1500);
 
-		var signintitle = document.getElementById("signintitle");
+		var signintitle = dom.getElementById("signintitle");
 
-		var aaa = function(){
+		var pagestart = function(){
 			signBody.setAttribute("class","signBodyhidden");
 			progressDivBox.setAttribute("class", "tn-progress bg-progress-box-show");
 			progressDiv.setAttribute("class","progressDiv bg-progress-run");
@@ -467,8 +534,67 @@
 				borderdiv.setAttribute("class","borderdivshow");
 				content.setAttribute("class","content contentshow");
 				footer.setAttribute("class","footershow");
+				weltitle.setAttribute("class","weltitle weltitleshow");
 			},5000);
 		};
-		signintitle.onclick = aaa;   
+		signintitle.onclick = pagestart; 
+		var oldclass = "";
+		function liclick(objli){
+			var temporaryStyle = document.getElementById("temporaryStyle");
+			var winHeight = dom.documentElement.clientHeight;
+			var winWidth = dom.documentElement.clientWidth;
+			if(temporaryStyle != null)
+			{
+				temporaryStyle.remove();
+			}
+			if(oldclass != "")
+			{
+				document.getElementsByClassName(oldclass)[0].setAttribute("class",oldclass);
+			}
+			oldclass = objli.className.substring(0,3);
+			var cssLiArr = document.getElementById("content").children[0].children;
+			for(var i = 0; i < cssLiArr.length; i++){
+
+				if(cssLiArr[i].className.substring(0,3) != oldclass)
+				{
+					cssLiArr[i].setAttribute("class",cssLiArr[i].className.substring(0,3) + " lihidden");
+				}
+
+			}
+			var temporaryTop = "0";
+			var temporaryLeft = 0 - 10000*(winWidth * 0.35 - 40)/winWidth/35; 
+			var temporaryStyle = dom.createElement("style");
+			temporaryStyle.type = "text/css";
+			temporaryStyle.id = "temporaryStyle";
+			temporaryStyle.innerHTML = ".temporaryStyle{top:" + temporaryTop + "px;left : " + temporaryLeft + "%;transition: all 1s ease 0s;width: auto !important;}"
+			document.getElementsByTagName("head").item(0).appendChild(temporaryStyle);
+			var temporaryborderstyle = dom.createElement("style");
+			temporaryborderstyle.type = "text/css";
+			temporaryborderstyle.id = "borderbodyshow";
+			temporaryborderstyle.innerHTML = ".borderbodyshow{top: 48px;height:" + (winHeight - (88 + 47 + 52 + 22))  + "px;width: 99%;margin: 0 auto;border: solid 2px #39f;transition: all 1s ease 1s,height 1s ease 2s;}"
+			document.getElementsByTagName("head").item(0).appendChild(temporaryborderstyle);
+			
+			objli.setAttribute("class",oldclass + " temporaryStyle");
+			borderbody.setAttribute("class","borderbody borderbodyshow");
+
+		}
+		function showcssMenu(){
+
+			var borderbodyshow = document.getElementById("borderbodyshow");
+			if(borderbodyshow != null)
+			{
+				borderbodyshow.remove();
+			}
+
+			if(oldclass == ""){
+				return;
+			}
+
+			var cssLiArr = document.getElementById("content").children[0].children;
+			for(var i = 0; i < cssLiArr.length; i++){
+				cssLiArr[i].setAttribute("class",cssLiArr[i].className.substring(0,3));
+			}
+			borderbody.setAttribute("class","borderbody");
+		}
 	</script>
 </html>
