@@ -1,0 +1,58 @@
+var infotDate = [
+		{
+			"index" : "transform",
+			"syntaxInfo" : "[ none|transform-functions; ]" , 
+			"noteInfo" : "[ 元素变换属性 ]" , 
+			"compileInfo" : "transform:rotate(60deg) scale(0.6) translate(60px,60px) skew(20deg,20deg)" , 
+			"splitInfo" : "transform:rotate(60deg) scaleX(0.6) scaleY(0.6) translateX(60px) translateY(60px) skewX(20deg) skewY(20deg)"
+		},
+		{
+			"index" : "transition",
+			"syntaxInfo" : "[ transition-property ] || [ transition-duration ] || [ transition-timing-function ] || [ transition-delay ]" , 
+			"noteInfo" : "[ 检索或设置对象中的参与过渡的属性 ] || [ 指定对象过渡的持续时间 ] || [ 检索或设置对象中过渡的动画类型 ] || [ 指定对象过渡的延迟时间 ]" , 
+			"compileInfo" : "transition:border-color .5s ease-in .1s, background-color .5s ease-in .1s, color .5s ease-in .1s;" , 
+			"splitInfo" : "transition-property:border-color, background-color, color;transition-duration:.5s, .5s, .5s;transition-timing-function:ease-in, ease-in, ease-in;transition-delay:.1s, .1s, .1s;"
+		},
+		{	
+			"index" : "animation",
+			"syntaxInfo" : "[ animation-name ] || [ animation-duration ] || [ animation-timing-function ] || [ animation-delay ] || [ animation-iteration-count ]  || [ animation-direction ] " , 
+			"noteInfo" : "[ 规定需要绑定到选择器的 keyframe 名称 ] || [ 规定完成动画所花费的时间，以秒或毫秒计 ] || [ 规定动画的速度曲线 ] || [ 规定在动画开始之前的延迟 ] || [ 规定动画应该播放的次数 ] || [ 规定是否应该轮流反向播放动画 ]" , 
+			"compileInfo" : "-webkit-animation:logoanimation 2s linear 0s infinite normal;" , 
+			"splitInfo" : "-webkit-animation-name:logoanimation;-webkit-animation-duration:2s;-webkit-animation-timing-function:linear;-webkit-animation-delay:0s;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:normal;"
+		},
+		{	
+			"index" : "textshadow",
+			"syntaxInfo" : "[ h-shadow ] || [ v-shadow ] || [ blur ] || [ color ];" , 
+			"noteInfo" : "[ 水平阴影的位置 ] || [ 垂直阴影的位置 ] || [ 模糊的距离 ] || [ 阴影的颜色 ]" , 
+			"compileInfo" : "text-shadow:2px 2px 4px #000000;" , 
+			"splitInfo" : ""
+		},
+		{
+			"index" : "boxshadow",
+			"syntaxInfo" : "[ h-shadow ] || [ v-shadow ] || [ blur ] || [ spread ] || [ color ] || [ inset ]" , 
+			"noteInfo" : "[ X轴偏移量 ] || [ Y轴偏移量 ] || [ 阴影模糊半径 ] || [ 阴影扩展半径 ] || [ 阴影颜色 ] || [ 投影方式 ]" , 
+			"compileInfo" : "box-shadow: inset 0 0 0 16px rgb(145,173,207);" , 
+			"splitInfo" : ""
+		},
+		{
+			"index" : "borderradius",
+			"syntaxInfo" : "[ 1-4 length|% ]" ,
+			"noteInfo" : "[ 圆角半径或者百分比 ]" , 
+			"compileInfo" : "border-radius: 20px;" , 
+			"splitInfo" : "border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;"
+		},
+		{
+			"index" : "lineargradient",
+			"syntaxInfo" : "other" ,
+			"noteInfo" : "" , 
+			"compileInfo" : "" , 
+			"splitInfo" : ""
+		},
+		{
+			"index" : "other",
+			"syntaxInfo" : "other" ,
+			"noteInfo" : "" , 
+			"compileInfo" : "" , 
+			"splitInfo" : ""
+		}
+	];

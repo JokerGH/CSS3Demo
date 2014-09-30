@@ -93,8 +93,17 @@
 		height: 100%;
 		font-family: 'icomoon';
 	}
+	@-webkit-keyframes logoanimation
+	{
+		0% {transform: rotateY(0deg);}
+		25% {transform: rotateY(90deg);}
+		50% {transform: rotateY(180deg);}
+		75% {transform: rotateY(270deg);}
+		100% {transform: rotateY(360deg);}
+	}
 	.logo{
-		border-radius: 0 0 0 16px;
+		border-radius: 0 0 16px 16px;
+		-webkit-animation:logoanimation 2s linear infinite;
 	}
 	.borderbuttonleft
 	{
@@ -171,7 +180,8 @@
 			border-radius: 15px;
 			border: solid 1px #39f;
 			box-shadow: 0px 0px 15px #39f;
-			transition: all 0.5s ease 1s;
+			transform:rotateY(360deg); 
+			transition: all 0.5s ease 1s,transform 1s ease 1s;
 		}
 		.signin_hidden{
 			position: absolute;
@@ -408,6 +418,14 @@
 			top: 275px;
 			left: 0px;
 		}
+		.li7{
+			top: 330px;
+			left: 0px;
+		}
+		.li8{
+			top: 385px;
+			left: 0px;
+		}
 		.lihidden{
 			opacity: 0;
 			transform: scale(0);
@@ -438,6 +456,71 @@
 			border: solid 0px #39f;
 			transition: all 1s ease 0s,height 0.5s ease 0s,width 0.5s ease 0.5s,border 0s ease 1s;
 		}
+		.borderbox{
+			position: relative;
+			top: 0px;
+			left: 0px;
+			height: 100%;
+			width: 98%;
+			margin: 0 auto;
+			border-right: solid 1px #39f;
+		}
+		.borderboxleftup{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 48%;
+			height: 48%;
+			margin: auto;
+			border-left: solid 1px #39f;
+			border-right: solid 1px #39f;
+			border-bottom: solid 1px #39f;
+		}
+		.borderboxleftdown{
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			width: 48%;
+			height: 48%;
+			margin: auto;
+			border-left: solid 1px #39f;
+			border-top: solid 1px #39f;
+			border-right: solid 1px #39f;
+		}
+		.borderboxright{
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			width: 50%;
+			height: 100%;
+			margin: auto;
+			border-left: solid 1px #39f;
+		}
+		.leftChild{
+			display: block;
+			height: 35%;
+			width: 100%;
+			opacity: 0;
+			font-size: 12px;
+			color: #ddd;
+			transform: scale(0);
+			transition: all 0.5s ease 0s;
+		}
+		.leftTitleChild{
+			display: block;
+			height: 15%;
+			width: 100%;
+			font-size: 22px;
+			color: #ddd;
+			opacity: 0;
+			transform: scale(0);
+			transition: all 0.5s ease 0s;
+		}
+		.leftChildShow{
+			opacity: 1;
+			transform: scale(1);
+			transition: all 1s ease 2s;
+		}
 	</style>
 	<body>
 		<div style="height: 100%; width: 100%; display: block; overflow: hidden;">
@@ -448,7 +531,7 @@
 				<div id="signin" class="signin">
 					<div id="signBody" class="signBody">
 						<div id="signintitle" class="signintitle">
-							<span style="display: block; position: relative; top: 22%;">
+							<span style="display: block;position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: auto;line-height: 34px;height: 34px;">
 								Sign in
 							</span>
 						</div>
@@ -464,23 +547,57 @@
 						<h1 id="weltitle" class="weltitle">Font End Share <span>about CSS3&HTML5</span></h1>
 						<div id="content" class="content">
 							<ul class="bmenu">
-							    <li class="li1" onclick="liclick(this)"><a href="javascript: void(0);">transform</a></li>
-							    <li class="li2" onclick="liclick(this)"><a href="javascript: void(0);">transition</a></li>
-							    <li class="li3" onclick="liclick(this)"><a href="javascript: void(0);">text-shadow</a></li>
-							    <li class="li4" onclick="liclick(this)"><a href="javascript: void(0);">box-shadow</a></li>
-							    <li class="li5" onclick="liclick(this)"><a href="javascript: void(0);">border-radius</a></li>
-							    <li class="li6" onclick="liclick(this)"><a href="javascript: void(0);">Contact</a></li>
+							    <li class="li1" onclick="liclick(this)" indexInfo="transform"><a href="javascript: void(0);">transform</a></li>
+							    <li class="li2" onclick="liclick(this)" indexInfo="transition"><a href="javascript: void(0);">transition</a></li>
+							    <li class="li3" onclick="liclick(this)" indexInfo="animation"><a href="javascript: void(0);">animation</a></li>
+							    <li class="li4" onclick="liclick(this)" indexInfo="textshadow"><a href="javascript: void(0);">text-shadow</a></li>
+							    <li class="li5" onclick="liclick(this)" indexInfo="boxshadow"><a href="javascript: void(0);">box-shadow</a></li>
+							    <li class="li6" onclick="liclick(this)" indexInfo="borderradius"><a href="javascript: void(0);">border-radius</a></li>
+							    <li class="li7" onclick="liclick(this)" indexInfo="lineargradient"><a href="javascript: void(0);">linear-gradient</a></li>
+							    <li class="li8" onclick="liclick(this)" indexInfo="other"><a href="javascript: void(0);">Other</a></li>
 							</ul>
 						</div>
 						<div id="borderbody" class="borderbody">
+							<div class="borderbox">
+								<div id="borderboxleftup" class="borderboxleftup">
+									<div name="info" class="leftTitleChild">
+										语法：
+									</div>
+									<div id="syntaxInfo" name="info" class="leftChild">
 
+									</div>
+									<div name="info" class="leftTitleChild">
+										注释：
+									</div>
+									<div id="noteInfo" name="info" class="leftChild">
+
+									</div>
+								</div>
+								<div id="borderboxleftdown" class="borderboxleftdown">
+									<div name="info" class="leftTitleChild">
+										编写方法：
+									</div>
+									<div id="compileInfo" name="info" class="leftChild" style="height:15%">
+
+									</div>
+									<div name="info" class="leftTitleChild">
+										拆分方法：
+									</div>
+									<div id="splitInfo" name="info" class="leftChild" style="height:55%">
+
+									</div>
+								</div>
+								<div id="borderboxright" class="borderboxright">
+
+								</div>
+							</div>
 						</div>
 					</div>
 					<div id="footer" class="footer">
 						<div id="footer_left" class="footer_left">
 							<div class="footer_inner_left">
 								<a>
-									<img src="img/logo.jpg" class="logo" width="113" height="50">
+									<img src="img/logo.jpg" class="logo" width="113" height="50" >
 								</a>
 							</div>
 							<div class="footer_inner_right">
@@ -498,31 +615,22 @@
 		</div>
 	</body>
 	<script  type="text/javascript" >
-		var s = window.screen;
-		var width = q.width = s.width;
-		var height = q.height = s.height;
-		var letters = Array(256).join(1).split('');
-		var draw = function () {
-		  q.getContext('2d').fillStyle='rgba(0,0,0,.05)';
-		  q.getContext('2d').fillRect(0,0,width,height);
-		  q.getContext('2d').fillStyle='#0F0';
-		  letters.map(function(y_pos, index){
-		    text = String.fromCharCode(33+Math.random()*63);
-		    x_pos = index * 10;
-		    q.getContext('2d').fillText(text, x_pos, y_pos);
-		    letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
-		  });
-		};
-		var backInterval = setInterval(draw, 33);
-		var dom = window.document;
-		
+		var dateScript = document.createElement("script");
+		dateScript.type = "text/javascript";
+		dateScript.src = "date/info.json";
+		document.getElementsByTagName("head").item(0).appendChild(dateScript);
 
+		var wallpaperScript = document.createElement("script");
+		wallpaperScript.type = "text/javascript";
+		wallpaperScript.src = "js/wallpaper.js";
+		document.getElementsByTagName("head").item(0).appendChild(wallpaperScript);
+		
 		setTimeout(function(){
 				signin.setAttribute("class","signin_show");
 				signBody.setAttribute("class","signBodyshow")
 			},1500);
 
-		var signintitle = dom.getElementById("signintitle");
+		var signintitle = document.getElementById("signintitle");
 
 		var pagestart = function(){
 			signBody.setAttribute("class","signBodyhidden");
@@ -537,12 +645,14 @@
 				weltitle.setAttribute("class","weltitle weltitleshow");
 			},5000);
 		};
+
 		signintitle.onclick = pagestart; 
+
 		var oldclass = "";
 		function liclick(objli){
 			var temporaryStyle = document.getElementById("temporaryStyle");
-			var winHeight = dom.documentElement.clientHeight;
-			var winWidth = dom.documentElement.clientWidth;
+			var winHeight = document.documentElement.clientHeight;
+			var winWidth = document.documentElement.clientWidth;
 			if(temporaryStyle != null)
 			{
 				temporaryStyle.remove();
@@ -563,12 +673,14 @@
 			}
 			var temporaryTop = "0";
 			var temporaryLeft = 0 - 10000*(winWidth * 0.35 - 40)/winWidth/35; 
-			var temporaryStyle = dom.createElement("style");
+
+			var temporaryStyle = document.createElement("style");
 			temporaryStyle.type = "text/css";
 			temporaryStyle.id = "temporaryStyle";
 			temporaryStyle.innerHTML = ".temporaryStyle{top:" + temporaryTop + "px;left : " + temporaryLeft + "%;transition: all 1s ease 0s;width: auto !important;}"
 			document.getElementsByTagName("head").item(0).appendChild(temporaryStyle);
-			var temporaryborderstyle = dom.createElement("style");
+
+			var temporaryborderstyle = document.createElement("style");
 			temporaryborderstyle.type = "text/css";
 			temporaryborderstyle.id = "borderbodyshow";
 			temporaryborderstyle.innerHTML = ".borderbodyshow{top: 48px;height:" + (winHeight - (88 + 47 + 52 + 22))  + "px;width: 99%;margin: 0 auto;border: solid 2px #39f;transition: all 1s ease 1s,height 1s ease 2s;}"
@@ -577,10 +689,19 @@
 			objli.setAttribute("class",oldclass + " temporaryStyle");
 			borderbody.setAttribute("class","borderbody borderbodyshow");
 
+			var leftChildArr = document.getElementsByName("info");
+
+			for(var i = 0; i < leftChildArr.length; i++){
+				leftChildArr[i].setAttribute("class",leftChildArr[i].className + " leftChildShow");
+			}
+
+			createInfoDiv(objli);
+
 		}
 		function showcssMenu(){
 
 			var borderbodyshow = document.getElementById("borderbodyshow");
+
 			if(borderbodyshow != null)
 			{
 				borderbodyshow.remove();
@@ -591,10 +712,48 @@
 			}
 
 			var cssLiArr = document.getElementById("content").children[0].children;
+
 			for(var i = 0; i < cssLiArr.length; i++){
 				cssLiArr[i].setAttribute("class",cssLiArr[i].className.substring(0,3));
 			}
 			borderbody.setAttribute("class","borderbody");
+
+			var leftChildArr = document.getElementsByName("info");
+
+			for(var i = 0; i < leftChildArr.length; i++){
+				leftChildArr[i].setAttribute("class",leftChildArr[i].className.split(" ")[0]);
+			}
+
+			cleanInfoDiv();
+		}
+		function createInfoDiv(objli){
+			var objIndex = objli.getAttribute("indexInfo");
+			console.log(objIndex);
+			for(var i = 0; i < infotDate.length; i++){
+				if(infotDate[i].index == objIndex){
+					syntaxInfo.innerHTML = infotDate[i].syntaxInfo;
+					noteInfo.innerHTML = infotDate[i].noteInfo;
+					compileInfo.innerHTML = infotDate[i].compileInfo;
+					splitInfo.innerHTML = splitaddBR(infotDate[i].splitInfo);
+				}
+			}
+		}
+		function cleanInfoDiv(){
+			syntaxInfo.innerHTML = "";
+			noteInfo.innerHTML = "";
+			compileInfo.innerHTML = "";
+			splitInfo.innerHTML = "";
+		}
+		function splitaddBR(value){
+			var arr = value.split(";");
+			var newValue = "";
+			for(var i = 0; i < arr.length; i++){
+				newValue = newValue + arr[i] + ";</br>";
+			}
+			if(newValue.length != 0){
+				newValue = newValue.substring(0,newValue.length-6);
+			}
+			return newValue;
 		}
 	</script>
 </html>
